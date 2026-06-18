@@ -34,13 +34,13 @@ export async function sha256Hex(input: string | ArrayBuffer): Promise<string> {
 async function deriveAesKey(passphrase: string, salt: Uint8Array): Promise<CryptoKey> {
   const baseKey = await crypto.subtle.importKey(
     "raw",
-    enc.encode(passphrase),
+    enc.encode(passphrase) as BufferSource,
     "PBKDF2",
     false,
     ["deriveKey"],
   );
   return crypto.subtle.deriveKey(
-    { name: "PBKDF2", salt, iterations: 250_000, hash: "SHA-256" },
+    { name: "PBKDF2", salt: salt as BufferSource, iterations: 250_000, hash: "SHA-256" },
     baseKey,
     { name: "AES-GCM", length: 256 },
     false,
@@ -58,7 +58,7 @@ export async function encryptFile(file: File, passphrase: string): Promise<Blob>
   const key = await deriveAesKey(passphrase, salt);
   const plaintext = await file.arrayBuffer();
   const ct = new Uint8Array(
-    await crypto.subtle.encrypt({ name: "AES-GCM", iv }, key, plaintext),
+    await crypto.subtle.encrypt({ name: "AES-GCM", iv: iv as BufferSource }, key, plaintext),
   );
   const out = new Uint8Array(MAGIC.length + salt.length + iv.length + ct.length);
   out.set(MAGIC, 0);
@@ -79,7 +79,11 @@ export async function decryptFile(file: File, passphrase: string): Promise<Blob>
   const ct = buf.slice(MAGIC.length + 28);
   const key = await deriveAesKey(passphrase, salt);
   try {
-    const pt = await crypto.subtle.decrypt({ name: "AES-GCM", iv }, key, ct);
+    const pt = await crypto.subtle.decrypt(
+      { name: "AES-GCM", iv: iv as BufferSource },
+      key,
+      ct as BufferSource,
+    );
     return new Blob([pt], { type: "application/octet-stream" });
   } catch {
     throw new Error("Decryption failed — wrong passphrase or corrupted file");
@@ -113,7 +117,7 @@ export async function exportPrivateKey(key: CryptoKey): Promise<string> {
 export async function importPublicKey(b64: string): Promise<CryptoKey> {
   return crypto.subtle.importKey(
     "spki",
-    fromBase64(b64),
+    fromBase64(b64) as BufferSource,
     { name: "RSA-PSS", hash: "SHA-256" },
     true,
     ["verify"],
@@ -123,7 +127,7 @@ export async function importPublicKey(b64: string): Promise<CryptoKey> {
 export async function importPrivateKey(b64: string): Promise<CryptoKey> {
   return crypto.subtle.importKey(
     "pkcs8",
-    fromBase64(b64),
+    fromBase64(b64) as BufferSource,
     { name: "RSA-PSS", hash: "SHA-256" },
     false,
     ["sign"],
@@ -143,7 +147,7 @@ export async function verifySignature(
   return crypto.subtle.verify(
     { name: "RSA-PSS", saltLength: 32 },
     publicKey,
-    fromBase64(signatureB64),
+    fromBase64(signatureB64) as BufferSource,
     data,
   );
 }

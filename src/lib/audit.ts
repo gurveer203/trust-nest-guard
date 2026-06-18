@@ -26,7 +26,7 @@ export async function logAudit(
       user_id: data.user.id,
       action,
       resource: resource ?? null,
-      details,
+      details: details as never,
       status,
     });
   } catch (err) {
