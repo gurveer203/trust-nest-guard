@@ -9,23 +9,78 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as AuthRouteImport } from './routes/auth'
-import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
+import { Route as WhoisRouteImport } from './routes/whois'
+import { Route as TracerouteRouteImport } from './routes/traceroute'
+import { Route as SystemRouteImport } from './routes/system'
+import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as ReportsRouteImport } from './routes/reports'
+import { Route as PortsRouteImport } from './routes/ports'
+import { Route as PingRouteImport } from './routes/ping'
+import { Route as PasswordRouteImport } from './routes/password'
+import { Route as LogAnalyzerRouteImport } from './routes/log-analyzer'
+import { Route as IntegrityRouteImport } from './routes/integrity'
+import { Route as DnsRouteImport } from './routes/dns'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as AuthenticatedSignRouteImport } from './routes/_authenticated/sign'
-import { Route as AuthenticatedLogsRouteImport } from './routes/_authenticated/logs'
-import { Route as AuthenticatedHashRouteImport } from './routes/_authenticated/hash'
-import { Route as AuthenticatedEncryptRouteImport } from './routes/_authenticated/encrypt'
-import { Route as AuthenticatedDecryptRouteImport } from './routes/_authenticated/decrypt'
-import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 
-const AuthRoute = AuthRouteImport.update({
-  id: '/auth',
-  path: '/auth',
+const WhoisRoute = WhoisRouteImport.update({
+  id: '/whois',
+  path: '/whois',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
-  id: '/_authenticated',
+const TracerouteRoute = TracerouteRouteImport.update({
+  id: '/traceroute',
+  path: '/traceroute',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SystemRoute = SystemRouteImport.update({
+  id: '/system',
+  path: '/system',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportsRoute = ReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortsRoute = PortsRouteImport.update({
+  id: '/ports',
+  path: '/ports',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PingRoute = PingRouteImport.update({
+  id: '/ping',
+  path: '/ping',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PasswordRoute = PasswordRouteImport.update({
+  id: '/password',
+  path: '/password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LogAnalyzerRoute = LogAnalyzerRouteImport.update({
+  id: '/log-analyzer',
+  path: '/log-analyzer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IntegrityRoute = IntegrityRouteImport.update({
+  id: '/integrity',
+  path: '/integrity',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DnsRoute = DnsRouteImport.update({
+  id: '/dns',
+  path: '/dns',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -33,123 +88,201 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AuthenticatedSignRoute = AuthenticatedSignRouteImport.update({
-  id: '/sign',
-  path: '/sign',
-  getParentRoute: () => AuthenticatedRouteRoute,
-} as any)
-const AuthenticatedLogsRoute = AuthenticatedLogsRouteImport.update({
-  id: '/logs',
-  path: '/logs',
-  getParentRoute: () => AuthenticatedRouteRoute,
-} as any)
-const AuthenticatedHashRoute = AuthenticatedHashRouteImport.update({
-  id: '/hash',
-  path: '/hash',
-  getParentRoute: () => AuthenticatedRouteRoute,
-} as any)
-const AuthenticatedEncryptRoute = AuthenticatedEncryptRouteImport.update({
-  id: '/encrypt',
-  path: '/encrypt',
-  getParentRoute: () => AuthenticatedRouteRoute,
-} as any)
-const AuthenticatedDecryptRoute = AuthenticatedDecryptRouteImport.update({
-  id: '/decrypt',
-  path: '/decrypt',
-  getParentRoute: () => AuthenticatedRouteRoute,
-} as any)
-const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
-  id: '/dashboard',
-  path: '/dashboard',
-  getParentRoute: () => AuthenticatedRouteRoute,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/auth': typeof AuthRoute
-  '/dashboard': typeof AuthenticatedDashboardRoute
-  '/decrypt': typeof AuthenticatedDecryptRoute
-  '/encrypt': typeof AuthenticatedEncryptRoute
-  '/hash': typeof AuthenticatedHashRoute
-  '/logs': typeof AuthenticatedLogsRoute
-  '/sign': typeof AuthenticatedSignRoute
+  '/about': typeof AboutRoute
+  '/dns': typeof DnsRoute
+  '/integrity': typeof IntegrityRoute
+  '/log-analyzer': typeof LogAnalyzerRoute
+  '/password': typeof PasswordRoute
+  '/ping': typeof PingRoute
+  '/ports': typeof PortsRoute
+  '/reports': typeof ReportsRoute
+  '/settings': typeof SettingsRoute
+  '/system': typeof SystemRoute
+  '/traceroute': typeof TracerouteRoute
+  '/whois': typeof WhoisRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/auth': typeof AuthRoute
-  '/dashboard': typeof AuthenticatedDashboardRoute
-  '/decrypt': typeof AuthenticatedDecryptRoute
-  '/encrypt': typeof AuthenticatedEncryptRoute
-  '/hash': typeof AuthenticatedHashRoute
-  '/logs': typeof AuthenticatedLogsRoute
-  '/sign': typeof AuthenticatedSignRoute
+  '/about': typeof AboutRoute
+  '/dns': typeof DnsRoute
+  '/integrity': typeof IntegrityRoute
+  '/log-analyzer': typeof LogAnalyzerRoute
+  '/password': typeof PasswordRoute
+  '/ping': typeof PingRoute
+  '/ports': typeof PortsRoute
+  '/reports': typeof ReportsRoute
+  '/settings': typeof SettingsRoute
+  '/system': typeof SystemRoute
+  '/traceroute': typeof TracerouteRoute
+  '/whois': typeof WhoisRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
-  '/auth': typeof AuthRoute
-  '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
-  '/_authenticated/decrypt': typeof AuthenticatedDecryptRoute
-  '/_authenticated/encrypt': typeof AuthenticatedEncryptRoute
-  '/_authenticated/hash': typeof AuthenticatedHashRoute
-  '/_authenticated/logs': typeof AuthenticatedLogsRoute
-  '/_authenticated/sign': typeof AuthenticatedSignRoute
+  '/about': typeof AboutRoute
+  '/dns': typeof DnsRoute
+  '/integrity': typeof IntegrityRoute
+  '/log-analyzer': typeof LogAnalyzerRoute
+  '/password': typeof PasswordRoute
+  '/ping': typeof PingRoute
+  '/ports': typeof PortsRoute
+  '/reports': typeof ReportsRoute
+  '/settings': typeof SettingsRoute
+  '/system': typeof SystemRoute
+  '/traceroute': typeof TracerouteRoute
+  '/whois': typeof WhoisRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/auth'
-    | '/dashboard'
-    | '/decrypt'
-    | '/encrypt'
-    | '/hash'
-    | '/logs'
-    | '/sign'
+    | '/about'
+    | '/dns'
+    | '/integrity'
+    | '/log-analyzer'
+    | '/password'
+    | '/ping'
+    | '/ports'
+    | '/reports'
+    | '/settings'
+    | '/system'
+    | '/traceroute'
+    | '/whois'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/auth'
-    | '/dashboard'
-    | '/decrypt'
-    | '/encrypt'
-    | '/hash'
-    | '/logs'
-    | '/sign'
+    | '/about'
+    | '/dns'
+    | '/integrity'
+    | '/log-analyzer'
+    | '/password'
+    | '/ping'
+    | '/ports'
+    | '/reports'
+    | '/settings'
+    | '/system'
+    | '/traceroute'
+    | '/whois'
   id:
     | '__root__'
     | '/'
-    | '/_authenticated'
-    | '/auth'
-    | '/_authenticated/dashboard'
-    | '/_authenticated/decrypt'
-    | '/_authenticated/encrypt'
-    | '/_authenticated/hash'
-    | '/_authenticated/logs'
-    | '/_authenticated/sign'
+    | '/about'
+    | '/dns'
+    | '/integrity'
+    | '/log-analyzer'
+    | '/password'
+    | '/ping'
+    | '/ports'
+    | '/reports'
+    | '/settings'
+    | '/system'
+    | '/traceroute'
+    | '/whois'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
-  AuthRoute: typeof AuthRoute
+  AboutRoute: typeof AboutRoute
+  DnsRoute: typeof DnsRoute
+  IntegrityRoute: typeof IntegrityRoute
+  LogAnalyzerRoute: typeof LogAnalyzerRoute
+  PasswordRoute: typeof PasswordRoute
+  PingRoute: typeof PingRoute
+  PortsRoute: typeof PortsRoute
+  ReportsRoute: typeof ReportsRoute
+  SettingsRoute: typeof SettingsRoute
+  SystemRoute: typeof SystemRoute
+  TracerouteRoute: typeof TracerouteRoute
+  WhoisRoute: typeof WhoisRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/auth': {
-      id: '/auth'
-      path: '/auth'
-      fullPath: '/auth'
-      preLoaderRoute: typeof AuthRouteImport
+    '/whois': {
+      id: '/whois'
+      path: '/whois'
+      fullPath: '/whois'
+      preLoaderRoute: typeof WhoisRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_authenticated': {
-      id: '/_authenticated'
-      path: ''
-      fullPath: '/'
-      preLoaderRoute: typeof AuthenticatedRouteRouteImport
+    '/traceroute': {
+      id: '/traceroute'
+      path: '/traceroute'
+      fullPath: '/traceroute'
+      preLoaderRoute: typeof TracerouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/system': {
+      id: '/system'
+      path: '/system'
+      fullPath: '/system'
+      preLoaderRoute: typeof SystemRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reports': {
+      id: '/reports'
+      path: '/reports'
+      fullPath: '/reports'
+      preLoaderRoute: typeof ReportsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ports': {
+      id: '/ports'
+      path: '/ports'
+      fullPath: '/ports'
+      preLoaderRoute: typeof PortsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ping': {
+      id: '/ping'
+      path: '/ping'
+      fullPath: '/ping'
+      preLoaderRoute: typeof PingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/password': {
+      id: '/password'
+      path: '/password'
+      fullPath: '/password'
+      preLoaderRoute: typeof PasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/log-analyzer': {
+      id: '/log-analyzer'
+      path: '/log-analyzer'
+      fullPath: '/log-analyzer'
+      preLoaderRoute: typeof LogAnalyzerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/integrity': {
+      id: '/integrity'
+      path: '/integrity'
+      fullPath: '/integrity'
+      preLoaderRoute: typeof IntegrityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dns': {
+      id: '/dns'
+      path: '/dns'
+      fullPath: '/dns'
+      preLoaderRoute: typeof DnsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -159,87 +292,24 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_authenticated/sign': {
-      id: '/_authenticated/sign'
-      path: '/sign'
-      fullPath: '/sign'
-      preLoaderRoute: typeof AuthenticatedSignRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/logs': {
-      id: '/_authenticated/logs'
-      path: '/logs'
-      fullPath: '/logs'
-      preLoaderRoute: typeof AuthenticatedLogsRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/hash': {
-      id: '/_authenticated/hash'
-      path: '/hash'
-      fullPath: '/hash'
-      preLoaderRoute: typeof AuthenticatedHashRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/encrypt': {
-      id: '/_authenticated/encrypt'
-      path: '/encrypt'
-      fullPath: '/encrypt'
-      preLoaderRoute: typeof AuthenticatedEncryptRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/decrypt': {
-      id: '/_authenticated/decrypt'
-      path: '/decrypt'
-      fullPath: '/decrypt'
-      preLoaderRoute: typeof AuthenticatedDecryptRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/dashboard': {
-      id: '/_authenticated/dashboard'
-      path: '/dashboard'
-      fullPath: '/dashboard'
-      preLoaderRoute: typeof AuthenticatedDashboardRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
   }
 }
 
-interface AuthenticatedRouteRouteChildren {
-  AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
-  AuthenticatedDecryptRoute: typeof AuthenticatedDecryptRoute
-  AuthenticatedEncryptRoute: typeof AuthenticatedEncryptRoute
-  AuthenticatedHashRoute: typeof AuthenticatedHashRoute
-  AuthenticatedLogsRoute: typeof AuthenticatedLogsRoute
-  AuthenticatedSignRoute: typeof AuthenticatedSignRoute
-}
-
-const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
-  AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
-  AuthenticatedDecryptRoute: AuthenticatedDecryptRoute,
-  AuthenticatedEncryptRoute: AuthenticatedEncryptRoute,
-  AuthenticatedHashRoute: AuthenticatedHashRoute,
-  AuthenticatedLogsRoute: AuthenticatedLogsRoute,
-  AuthenticatedSignRoute: AuthenticatedSignRoute,
-}
-
-const AuthenticatedRouteRouteWithChildren =
-  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
-  AuthRoute: AuthRoute,
+  AboutRoute: AboutRoute,
+  DnsRoute: DnsRoute,
+  IntegrityRoute: IntegrityRoute,
+  LogAnalyzerRoute: LogAnalyzerRoute,
+  PasswordRoute: PasswordRoute,
+  PingRoute: PingRoute,
+  PortsRoute: PortsRoute,
+  ReportsRoute: ReportsRoute,
+  SettingsRoute: SettingsRoute,
+  SystemRoute: SystemRoute,
+  TracerouteRoute: TracerouteRoute,
+  WhoisRoute: WhoisRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
