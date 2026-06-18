@@ -9,149 +9,38 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as AuthRouteImport } from './routes/auth'
-import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as AuthenticatedSignRouteImport } from './routes/_authenticated/sign'
-import { Route as AuthenticatedLogsRouteImport } from './routes/_authenticated/logs'
-import { Route as AuthenticatedHashRouteImport } from './routes/_authenticated/hash'
-import { Route as AuthenticatedEncryptRouteImport } from './routes/_authenticated/encrypt'
-import { Route as AuthenticatedDecryptRouteImport } from './routes/_authenticated/decrypt'
-import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 
-const AuthRoute = AuthRouteImport.update({
-  id: '/auth',
-  path: '/auth',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
-  id: '/_authenticated',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AuthenticatedSignRoute = AuthenticatedSignRouteImport.update({
-  id: '/sign',
-  path: '/sign',
-  getParentRoute: () => AuthenticatedRouteRoute,
-} as any)
-const AuthenticatedLogsRoute = AuthenticatedLogsRouteImport.update({
-  id: '/logs',
-  path: '/logs',
-  getParentRoute: () => AuthenticatedRouteRoute,
-} as any)
-const AuthenticatedHashRoute = AuthenticatedHashRouteImport.update({
-  id: '/hash',
-  path: '/hash',
-  getParentRoute: () => AuthenticatedRouteRoute,
-} as any)
-const AuthenticatedEncryptRoute = AuthenticatedEncryptRouteImport.update({
-  id: '/encrypt',
-  path: '/encrypt',
-  getParentRoute: () => AuthenticatedRouteRoute,
-} as any)
-const AuthenticatedDecryptRoute = AuthenticatedDecryptRouteImport.update({
-  id: '/decrypt',
-  path: '/decrypt',
-  getParentRoute: () => AuthenticatedRouteRoute,
-} as any)
-const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
-  id: '/dashboard',
-  path: '/dashboard',
-  getParentRoute: () => AuthenticatedRouteRoute,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/auth': typeof AuthRoute
-  '/dashboard': typeof AuthenticatedDashboardRoute
-  '/decrypt': typeof AuthenticatedDecryptRoute
-  '/encrypt': typeof AuthenticatedEncryptRoute
-  '/hash': typeof AuthenticatedHashRoute
-  '/logs': typeof AuthenticatedLogsRoute
-  '/sign': typeof AuthenticatedSignRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/auth': typeof AuthRoute
-  '/dashboard': typeof AuthenticatedDashboardRoute
-  '/decrypt': typeof AuthenticatedDecryptRoute
-  '/encrypt': typeof AuthenticatedEncryptRoute
-  '/hash': typeof AuthenticatedHashRoute
-  '/logs': typeof AuthenticatedLogsRoute
-  '/sign': typeof AuthenticatedSignRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
-  '/auth': typeof AuthRoute
-  '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
-  '/_authenticated/decrypt': typeof AuthenticatedDecryptRoute
-  '/_authenticated/encrypt': typeof AuthenticatedEncryptRoute
-  '/_authenticated/hash': typeof AuthenticatedHashRoute
-  '/_authenticated/logs': typeof AuthenticatedLogsRoute
-  '/_authenticated/sign': typeof AuthenticatedSignRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/auth'
-    | '/dashboard'
-    | '/decrypt'
-    | '/encrypt'
-    | '/hash'
-    | '/logs'
-    | '/sign'
+  fullPaths: '/'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/auth'
-    | '/dashboard'
-    | '/decrypt'
-    | '/encrypt'
-    | '/hash'
-    | '/logs'
-    | '/sign'
-  id:
-    | '__root__'
-    | '/'
-    | '/_authenticated'
-    | '/auth'
-    | '/_authenticated/dashboard'
-    | '/_authenticated/decrypt'
-    | '/_authenticated/encrypt'
-    | '/_authenticated/hash'
-    | '/_authenticated/logs'
-    | '/_authenticated/sign'
+  to: '/'
+  id: '__root__' | '/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
-  AuthRoute: typeof AuthRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/auth': {
-      id: '/auth'
-      path: '/auth'
-      fullPath: '/auth'
-      preLoaderRoute: typeof AuthRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated': {
-      id: '/_authenticated'
-      path: ''
-      fullPath: '/'
-      preLoaderRoute: typeof AuthenticatedRouteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/': {
       id: '/'
       path: '/'
@@ -159,87 +48,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_authenticated/sign': {
-      id: '/_authenticated/sign'
-      path: '/sign'
-      fullPath: '/sign'
-      preLoaderRoute: typeof AuthenticatedSignRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/logs': {
-      id: '/_authenticated/logs'
-      path: '/logs'
-      fullPath: '/logs'
-      preLoaderRoute: typeof AuthenticatedLogsRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/hash': {
-      id: '/_authenticated/hash'
-      path: '/hash'
-      fullPath: '/hash'
-      preLoaderRoute: typeof AuthenticatedHashRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/encrypt': {
-      id: '/_authenticated/encrypt'
-      path: '/encrypt'
-      fullPath: '/encrypt'
-      preLoaderRoute: typeof AuthenticatedEncryptRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/decrypt': {
-      id: '/_authenticated/decrypt'
-      path: '/decrypt'
-      fullPath: '/decrypt'
-      preLoaderRoute: typeof AuthenticatedDecryptRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/dashboard': {
-      id: '/_authenticated/dashboard'
-      path: '/dashboard'
-      fullPath: '/dashboard'
-      preLoaderRoute: typeof AuthenticatedDashboardRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
   }
 }
 
-interface AuthenticatedRouteRouteChildren {
-  AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
-  AuthenticatedDecryptRoute: typeof AuthenticatedDecryptRoute
-  AuthenticatedEncryptRoute: typeof AuthenticatedEncryptRoute
-  AuthenticatedHashRoute: typeof AuthenticatedHashRoute
-  AuthenticatedLogsRoute: typeof AuthenticatedLogsRoute
-  AuthenticatedSignRoute: typeof AuthenticatedSignRoute
-}
-
-const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
-  AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
-  AuthenticatedDecryptRoute: AuthenticatedDecryptRoute,
-  AuthenticatedEncryptRoute: AuthenticatedEncryptRoute,
-  AuthenticatedHashRoute: AuthenticatedHashRoute,
-  AuthenticatedLogsRoute: AuthenticatedLogsRoute,
-  AuthenticatedSignRoute: AuthenticatedSignRoute,
-}
-
-const AuthenticatedRouteRouteWithChildren =
-  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
-  AuthRoute: AuthRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
