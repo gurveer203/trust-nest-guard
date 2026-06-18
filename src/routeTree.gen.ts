@@ -9,8 +9,80 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WhoisRouteImport } from './routes/whois'
+import { Route as TracerouteRouteImport } from './routes/traceroute'
+import { Route as SystemRouteImport } from './routes/system'
+import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as ReportsRouteImport } from './routes/reports'
+import { Route as PortsRouteImport } from './routes/ports'
+import { Route as PingRouteImport } from './routes/ping'
+import { Route as PasswordRouteImport } from './routes/password'
+import { Route as LogAnalyzerRouteImport } from './routes/log-analyzer'
+import { Route as IntegrityRouteImport } from './routes/integrity'
+import { Route as DnsRouteImport } from './routes/dns'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
+const WhoisRoute = WhoisRouteImport.update({
+  id: '/whois',
+  path: '/whois',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TracerouteRoute = TracerouteRouteImport.update({
+  id: '/traceroute',
+  path: '/traceroute',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SystemRoute = SystemRouteImport.update({
+  id: '/system',
+  path: '/system',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportsRoute = ReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortsRoute = PortsRouteImport.update({
+  id: '/ports',
+  path: '/ports',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PingRoute = PingRouteImport.update({
+  id: '/ping',
+  path: '/ping',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PasswordRoute = PasswordRouteImport.update({
+  id: '/password',
+  path: '/password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LogAnalyzerRoute = LogAnalyzerRouteImport.update({
+  id: '/log-analyzer',
+  path: '/log-analyzer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IntegrityRoute = IntegrityRouteImport.update({
+  id: '/integrity',
+  path: '/integrity',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DnsRoute = DnsRouteImport.update({
+  id: '/dns',
+  path: '/dns',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +91,200 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/dns': typeof DnsRoute
+  '/integrity': typeof IntegrityRoute
+  '/log-analyzer': typeof LogAnalyzerRoute
+  '/password': typeof PasswordRoute
+  '/ping': typeof PingRoute
+  '/ports': typeof PortsRoute
+  '/reports': typeof ReportsRoute
+  '/settings': typeof SettingsRoute
+  '/system': typeof SystemRoute
+  '/traceroute': typeof TracerouteRoute
+  '/whois': typeof WhoisRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/dns': typeof DnsRoute
+  '/integrity': typeof IntegrityRoute
+  '/log-analyzer': typeof LogAnalyzerRoute
+  '/password': typeof PasswordRoute
+  '/ping': typeof PingRoute
+  '/ports': typeof PortsRoute
+  '/reports': typeof ReportsRoute
+  '/settings': typeof SettingsRoute
+  '/system': typeof SystemRoute
+  '/traceroute': typeof TracerouteRoute
+  '/whois': typeof WhoisRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/dns': typeof DnsRoute
+  '/integrity': typeof IntegrityRoute
+  '/log-analyzer': typeof LogAnalyzerRoute
+  '/password': typeof PasswordRoute
+  '/ping': typeof PingRoute
+  '/ports': typeof PortsRoute
+  '/reports': typeof ReportsRoute
+  '/settings': typeof SettingsRoute
+  '/system': typeof SystemRoute
+  '/traceroute': typeof TracerouteRoute
+  '/whois': typeof WhoisRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/dns'
+    | '/integrity'
+    | '/log-analyzer'
+    | '/password'
+    | '/ping'
+    | '/ports'
+    | '/reports'
+    | '/settings'
+    | '/system'
+    | '/traceroute'
+    | '/whois'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/dns'
+    | '/integrity'
+    | '/log-analyzer'
+    | '/password'
+    | '/ping'
+    | '/ports'
+    | '/reports'
+    | '/settings'
+    | '/system'
+    | '/traceroute'
+    | '/whois'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/dns'
+    | '/integrity'
+    | '/log-analyzer'
+    | '/password'
+    | '/ping'
+    | '/ports'
+    | '/reports'
+    | '/settings'
+    | '/system'
+    | '/traceroute'
+    | '/whois'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  DnsRoute: typeof DnsRoute
+  IntegrityRoute: typeof IntegrityRoute
+  LogAnalyzerRoute: typeof LogAnalyzerRoute
+  PasswordRoute: typeof PasswordRoute
+  PingRoute: typeof PingRoute
+  PortsRoute: typeof PortsRoute
+  ReportsRoute: typeof ReportsRoute
+  SettingsRoute: typeof SettingsRoute
+  SystemRoute: typeof SystemRoute
+  TracerouteRoute: typeof TracerouteRoute
+  WhoisRoute: typeof WhoisRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/whois': {
+      id: '/whois'
+      path: '/whois'
+      fullPath: '/whois'
+      preLoaderRoute: typeof WhoisRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/traceroute': {
+      id: '/traceroute'
+      path: '/traceroute'
+      fullPath: '/traceroute'
+      preLoaderRoute: typeof TracerouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/system': {
+      id: '/system'
+      path: '/system'
+      fullPath: '/system'
+      preLoaderRoute: typeof SystemRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reports': {
+      id: '/reports'
+      path: '/reports'
+      fullPath: '/reports'
+      preLoaderRoute: typeof ReportsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ports': {
+      id: '/ports'
+      path: '/ports'
+      fullPath: '/ports'
+      preLoaderRoute: typeof PortsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ping': {
+      id: '/ping'
+      path: '/ping'
+      fullPath: '/ping'
+      preLoaderRoute: typeof PingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/password': {
+      id: '/password'
+      path: '/password'
+      fullPath: '/password'
+      preLoaderRoute: typeof PasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/log-analyzer': {
+      id: '/log-analyzer'
+      path: '/log-analyzer'
+      fullPath: '/log-analyzer'
+      preLoaderRoute: typeof LogAnalyzerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/integrity': {
+      id: '/integrity'
+      path: '/integrity'
+      fullPath: '/integrity'
+      preLoaderRoute: typeof IntegrityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dns': {
+      id: '/dns'
+      path: '/dns'
+      fullPath: '/dns'
+      preLoaderRoute: typeof DnsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +297,18 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  DnsRoute: DnsRoute,
+  IntegrityRoute: IntegrityRoute,
+  LogAnalyzerRoute: LogAnalyzerRoute,
+  PasswordRoute: PasswordRoute,
+  PingRoute: PingRoute,
+  PortsRoute: PortsRoute,
+  ReportsRoute: ReportsRoute,
+  SettingsRoute: SettingsRoute,
+  SystemRoute: SystemRoute,
+  TracerouteRoute: TracerouteRoute,
+  WhoisRoute: WhoisRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
