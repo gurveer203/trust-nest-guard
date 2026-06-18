@@ -81,11 +81,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "Cyber Security Toolkit Pro — All-in-one Security Suite" },
       { name: "description", content: "Professional cybersecurity dashboard with system info, ping sweep, port scanner, DNS & whois lookup, traceroute, password generator, log analyzer, file integrity checker, and reporting." },
       { name: "author", content: "Cyber Security Toolkit Pro" },
-      { property: "og:title", content: "Cyber Security Toolkit Pro" },
-      { property: "og:description", content: "All-in-one cybersecurity dashboard with 10+ professional security tools in a modern dark interface." },
+      { property: "og:title", content: "Cyber Security Toolkit Pro — All-in-one Security Suite" },
+      { property: "og:description", content: "Professional cybersecurity dashboard with system info, ping sweep, port scanner, DNS & whois lookup, traceroute, password generator, log analyzer, file integrity checker, and reporting." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Cyber Security Toolkit Pro — All-in-one Security Suite" },
+      { name: "twitter:description", content: "Professional cybersecurity dashboard with system info, ping sweep, port scanner, DNS & whois lookup, traceroute, password generator, log analyzer, file integrity checker, and reporting." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/d15d6751-e413-4e51-8277-f69e833527dd/id-preview-44ee833f--aaec541e-d4df-4956-aea8-98953b67396e.lovable.app-1781759089194.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/d15d6751-e413-4e51-8277-f69e833527dd/id-preview-44ee833f--aaec541e-d4df-4956-aea8-98953b67396e.lovable.app-1781759089194.png" },
     ],
     links: [
       {
